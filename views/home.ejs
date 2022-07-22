@@ -30,8 +30,16 @@
                 <ol>
                  <%for(let i of contact_list){%> 
                     <li class="list-item" >
-                        <p><%= i.name%></p>
-                        <p><%= i.phone%></p>
+                        <div id="details">
+                            <p><%= i.name%></p>
+                            <p><%= i.phone%></p>
+                        </div>
+
+                        <div class="delete-contact">
+                            <a href="/delete-contact/?phone=<%= i.phone %>"> <i class="fa fa-trash"></i></a>
+                            
+                        </div>
+                       
                     </li>
                     <%} %>
                 </ol>

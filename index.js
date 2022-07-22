@@ -48,6 +48,16 @@ app.post('/contact-list',function(req,res){
     return res.redirect('back');
 });
 
+app.get('/delete-contact/',function(req,res){
+    console.log(req.query);
+    let phone = req.query.phone;
+    let contactIndex = contactList.findIndex(contact=>contact.phone == phone);
+    if(contactIndex != -1){
+        contactList.splice(contactIndex,1);
+    }
+    return res.redirect('back');
+});
+
 app.listen(port,function(err){
     if(err){
         console.log("error in running server",err);
