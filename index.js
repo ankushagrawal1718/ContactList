@@ -7,6 +7,7 @@ const app = express();
 app.set('view engine','ejs');
 app.set('views',path.join(__dirname,'views'));
 app.use(express.urlencoded());
+app.use(express.static("assets"));
 
 var contactList = [
     {
@@ -36,11 +37,15 @@ app.get('/practice',function(req,res){
 app.post('/contact-list',function(req,res){
     // console.log(req.body.name);
     // console.log(req.body.phone);
-    contactList.push({
-        name: req.body.name,
-        phone: req.body.phone
-    });
-    return res.redirect('/');
+
+    // contactList.push({
+    //     name: req.body.name,
+    //     phone: req.body.phone
+    // });
+    contactList.push(req.body);
+
+    // return res.redirect('/');
+    return res.redirect('back');
 });
 
 app.listen(port,function(err){

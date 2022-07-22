@@ -3,25 +3,41 @@
         <title>
             <%=title%>
         </title>
+        <script src="https://kit.fontawesome.com/77c6958897.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="/css/home.css">
     </head>
 
     <body>
-        <h1>Contact List</h1>
-        <form action="/contact-list" method="post" >
-            <input type="text" name="name" placeholder="Enter Name" required>
-            <input type="phone" name="phone" placeholder="Enter Phone" required>
-            <button type="submit"> Add Contact</button>
 
-        </form>
-        <div>
-            <ul>
-             <%for(let i of contact_list){%> 
-                <li>
-                    <p><%= i.name%></p>
-                    <p><%= i.phone%></p>
-                </li>
-                <%} %>
-            </ul>
+        <div id="contacts-List">
+            <h1 id="page-heading">
+                <i class="fas fa-address-book"></i>
+                My Contacts List
+            </h1>
+                <form action="/contact-list" method="post" id="form-container">
+                    <div>
+                        <input type="text" name="name" placeholder="Enter Name" required>
+                    </div>
+                   <div>
+                    <input type="number" name="phone" placeholder="Enter Phone" required>
+                   </div>
+                    <div>
+                        <button type="submit" id="submit-button"> Add Contact</button>
+                    </div>
+                </form>
+            
+            <div id="contact-container">
+                <ol>
+                 <%for(let i of contact_list){%> 
+                    <li class="list-item" >
+                        <p><%= i.name%></p>
+                        <p><%= i.phone%></p>
+                    </li>
+                    <%} %>
+                </ol>
+            </div>
         </div>
+       
+        <script src="/javascript/home.js"></script>
     </body>
 </html>
