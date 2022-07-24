@@ -15,19 +15,14 @@
                 My Contacts List
             </h1>
                 <form action="/contact-list" method="post" id="form-container">
-                    <div>
-                        <input type="text" name="name" placeholder="Enter Name" required>
-                    </div>
-                   <div>
+                    <input type="text" name="name" placeholder="Enter Name" required>
                     <input type="number" name="phone" placeholder="Enter Phone" required>
-                   </div>
-                    <div>
-                        <button type="submit" id="submit-button"> Add Contact</button>
-                    </div>
+                    <button type="submit" id="submit-button"> Add Contact</button>
                 </form>
             
             <div id="contact-container">
                 <ol>
+                    <h1 >My Contacts</h1>
                  <%for(let i of contact_list){%> 
                     <li class="list-item" >
                         <div id="details">
